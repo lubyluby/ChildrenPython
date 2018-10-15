@@ -93,7 +93,7 @@ def press(num):
         result.set(a)
     if num=='%':
         if len(oldnum)==1:
-            a=float(oldnum)*0.01
+            a=round(float(oldnum)*0.01,2)
         else:
             orgNume=oldnum[::-1]
             isfind=False
@@ -104,10 +104,13 @@ def press(num):
                     a=orgNume[i]
                     if is_operate(a):
                         a=orgNume[0:i]
-                        b=float(a)*0.01
+                        c=a[::-1]
+                        b=float(c)*0.01
                         index=len(oldnum)-i
                         a=oldnum[0:index]+str(b)
-                        isfind=True       
+                        isfind=True  
+            if isfind==False:
+                a=round(float(oldnum)*0.01,2)   
         result.set(a)
 
     if num=='.':
@@ -124,7 +127,7 @@ def pressEqual():
     computrStr = ''.join(lists)     #讲列表内容用join命令将字符串链接起来
     formula_list=formula_formate(computrStr)
     result1,_=final_calc(formula_list)
-    endNum=result1[0]
+    endNum=round(result1[0],2)
     result.set(endNum)                   #讲运算结果显示到屏幕1
     result2.set(computrStr)         #将运算过程显示到屏幕2
     lists.clear()                   #清空列表内容
