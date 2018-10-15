@@ -141,7 +141,10 @@ def calculate(n1,n2,operator):
     if operator=="*":
         result=n1*n2
     if operator=="/":
-        result=n1/n2
+        if n2==0.0:
+            result=0.0
+        else:
+            result=n1/n2
     return result
 
 #判断是否为操作符
