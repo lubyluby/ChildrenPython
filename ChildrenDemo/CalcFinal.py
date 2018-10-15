@@ -156,7 +156,7 @@ def is_operate(e):
 def formula_formate(formula):
     #去掉空格
     formula=re.sub(' ','',formula)
-    formula_list=[i for i in re.split('(\-\d+.?\d*)',formula) if i]
+    formula_list=[i for i in re.split('(\-\d+\.?\d*)',formula) if i]
     final_formula=[]
     for item in formula_list:
         if len(final_formula)==0 and re.search('^\-\d+\.?\d*$',item):
